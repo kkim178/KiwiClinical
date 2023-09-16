@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SignUpWindowPatient from './SignUpWindowPatient'
 import SignUpWindowResearcher from './SignUpWindowResearcher'
 
