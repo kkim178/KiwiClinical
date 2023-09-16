@@ -6,7 +6,7 @@ const PatientInfo = () => {
     const containerStyle = {
         border: '0px solid #007BFF', // Add a border with a blue color
         borderRadius: '8px', // Add rounded corners
-        margin: '50px',
+        margin: '50px',        
         flex: '1',
         flexDirection: 'column',
         padding: '20px', // Add padding for spacing
@@ -50,7 +50,6 @@ const ResearcherInfo = () => {
         flex: '1',
         flexDirection: 'column',
         padding: '20px', // Add padding for spacing
-        height: "70%",
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center', // Center-align text
@@ -89,10 +88,24 @@ const SignUpWindowBase = (props) => {
         width:'100%',
     }
 
+    // const smallContainerStyle = {
+    //     flex: '1',
+    //     border: '2px solid',
+    //     minHeight: '100vh', // Ensure the container spans the viewport height
+
+    // }
+    
     const smallContainerStyle = {
+        border: '0px solid #007BFF', // Add a border with a blue color
+        borderRadius: '8px', // Add rounded corners
+        margin: '50px',
         flex: '1',
-        border: '2px solid',
-        minHeight: '100vh', // Ensure the container spans the viewport height
+        flexDirection: 'column',
+        padding: '20px', // Add padding for spacing
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center', // Center-align text
+        boxShadow: '0px -8px 12px rgba(0, 0, 0, 0.2), 0px 8px 12px rgba(0, 0, 0, 0.2)',
 
     }
 

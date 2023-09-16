@@ -22,10 +22,15 @@ export default function SignUp(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+
+    const formData = {
       email: data.get('email'),
-      password: data.get('password'),
-    });
+      first_name: data.get('firstName'),
+      last_name: data.get('lastName'),
+      organization_name: data.get('organization-name'),
+      
+    }
+    console.log(formData);
   };
 
   return (
@@ -78,17 +83,6 @@ export default function SignUp(props) {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
                 />
               </Grid>
               <Grid item xs={12}>

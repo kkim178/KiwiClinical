@@ -13,18 +13,46 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import axios from 'axios';
+
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
+
+
 export default function SignUpWindow(props) {
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+  
+    // Construct the data to send in the POST request
+    const formData = {
+      age: data.get('age'),
+      race: data.get('race'),
+      weight: data.get('weight'),
+      height: data.get('height'),
       email: data.get('email'),
-      password: data.get('password'),
-    });
+      phone_number: data.get('phone-number'),      
+    };
+  
+    console.log(formData);
+  
+    // try {
+    //   const response = await axios.post('YOUR_API_ENDPOINT_URL', formData);
+  
+    //   if (response.status === 200) {
+    //     // The POST request was successful, you can handle the success here
+    //     console.log('Signup successful');
+    //     // You can also redirect the user to their homepage or perform any other actions here
+    //   } else {
+    //     // The POST request failed, handle errors here
+    //     console.error('Signup failed');
+    //   }
+    // } catch (error) {
+    //   // Handle network errors or other exceptions here
+    //   console.error('An error occurred', error);
+    // }
   };
 
   return (
@@ -69,18 +97,17 @@ export default function SignUpWindow(props) {
                   name="phone-number"
                 />
               </Grid>
+              <h3>Medical Information:</h3>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
+                  name="age"
+                  label="Age"
+                  type="age"
+                  id="age"
                 />
               </Grid>
-              <h3>Medical Information:</h3>
               <Grid item xs={12}>
                 <TextField
                   required
@@ -101,17 +128,22 @@ export default function SignUpWindow(props) {
                   id="weight"
                 />
               </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="race"
+                  label="Race"
+                  type="race"
+                  id="race"
+                />
+              </Grid>
             </Grid>
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={() => {
-                /*
-                  TODO HERE: ADD NEW PATIENT DATA TO DB, AND REDIRECT PATIENT TO THEIR HOMEPAGE
-                */
-              }}
             >
               Sign Up
             </Button>
