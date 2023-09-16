@@ -113,4 +113,4 @@ config.read(os.path.abspath(os.path.join(".ini")))
 
 if __name__ == '__main__':
     app.config['MONGO_URI'] = config['DB_URI']
-    app.run(host="54.212.57.221", port=5000)
+    app.run(host="0.0.0.0", port=5000)
