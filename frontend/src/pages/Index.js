@@ -16,10 +16,10 @@ function Index(){
                         <div className="flex flex-col space-y-8 mb-30 ">
                             <h1 className="text-5xl font-extrabold">Clinical Trials, Made Easy.</h1>
                             <div className="flex flex-col space-y-4">
-                                <Link to="/signup" className="bg-green-500 hover:bg-green-600 font-bold text-white py-2 px-6 rounded transition-colors duration-300">
+                                <Link to="/new/patient/" className="bg-green-500 hover:bg-green-600 font-bold text-white py-2 px-6 rounded transition-colors duration-300">
                                     For Volunteers
                                 </Link>
-                                <Link to="/signup" className="bg-green-500 hover:bg-green-600 font-bold text-white py-2 px-6 rounded transition-colors duration-300">
+                                <Link to="/new/researcher/" className="bg-green-500 hover:bg-green-600 font-bold text-white py-2 px-6 rounded transition-colors duration-300">
                                     For Researchers
                                 </Link>
                             </div>
