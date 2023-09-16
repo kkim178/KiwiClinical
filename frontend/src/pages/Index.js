@@ -15,7 +15,7 @@ function Index(){
                     <div className="flex-col space-y-8 mb-30 pl-20">
                         <div className="flex flex-col space-y-8 mb-30 ">
                             <h1 className="text-5xl font-extrabold">Clinical Trials, Made Simple.</h1>
-                            <div className="flex-row flex justify-left ">
+                            <div className="flex-row flex justify-start space-x-5">
                                 <Link to="/new/patient/" className="bg-green-500 hover:bg-green-600 font-bold mr-5 text-white py-2 px-6 rounded transition-colors duration-300">
                                     For Volunteers
                                 </Link>
