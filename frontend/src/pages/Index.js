@@ -12,7 +12,7 @@ function Index(){
             <div className="h-[90vh] w-full bg-gradient-to-br from-green-200 to-[#02C344] flex items-center justify-center">
                 <div className="flex justify-between items-center gap-48 h-screen p-10">
                     {/* Left Side */}
-                    {/* <div className="flex-col space-y-8 mb-30">
+                    <div className="flex-col space-y-8 mb-30">
                         <div className="flex flex-col space-y-8 mb-30 ">
                             <h1 className="text-5xl font-extrabold">Clinical Trials, Made Easy.</h1>
                             <div className="flex flex-col space-y-4">
@@ -24,7 +24,7 @@ function Index(){
                                 </Link>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
 
                     {/* Right Side */}
                     <div className="items-center justify-center w-1/2 space-y-8 pt-16"> {/* Added padding to the top */}
