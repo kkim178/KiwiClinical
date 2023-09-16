@@ -1,7 +1,9 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
 // import Home from './pages/PatientHome';
-import pages from './pages/pages.js';
+import PatientHome from './pages/PatientHome';
+import ResearcherHome from './pages/ResearcherHome';
+import SignUp from './pages/SignUp';
 
 const tempComponent = () => {
     return (
@@ -15,9 +17,9 @@ function MainRouter() {
         <div>
             <Routes>
                 <Route path={'/'} element={tempComponent}/>
-                <Route path={'new/'} element={pages.SignUp}/>
-                <Route path={'patientHome/'} element={pages.PatientHome}/>
-                <Route path={'researcherHome/'} element={pages.ResearcherHome}/>
+                <Route path={'new/'} element={<SignUp/>}/>
+                <Route path={'patientHome/'} element={<PatientHome/>}/>
+                <Route path={'researcherHome/'} element={<ResearcherHome/>}/>
             </Routes>
         </div>
     )

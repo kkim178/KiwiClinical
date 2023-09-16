@@ -7,4 +7,5 @@ function ResearcherHome(){
         </div>
     )
 }
+
 export default ResearcherHome
