@@ -32,7 +32,7 @@ function Index(){
                             <img src="/pexels-photo-8871545.webp" alt="Person 1" className="w-full h-full object-cover rounded-full" />
                         </div>
                         <div className="border-3 border-white w-40 h-40 animate-float rounded-full">
-                            <img src="/kiwi.png" alt="Person 2" className="w-full h-full object-cover rounded-full" style=  { }/>
+                            <img src="/kiwi.png" alt="Person 2" className="w-full h-full object-cover rounded-full"/>
                         </div>
                         <div className="border-3 border-white w-30 h-30 animate-float rounded-full">
                             <img src="/photo-1551727974-8af20a3322f1 copy.png" alt="Person 3" className="w-30 h-30 object-cover rounded-full" />
