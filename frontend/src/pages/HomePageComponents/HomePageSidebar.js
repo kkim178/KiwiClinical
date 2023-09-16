@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faUser, faBell } from '@fortawesome/free-solid-svg-icons';
 
-const HomePageSidebar = () => {
+const HomePageSidebar = ({setCurrentModule}) => {
     const containerStyles = {
         display: "flex",
         flexDirection: 'column',
@@ -31,12 +31,12 @@ const HomePageSidebar = () => {
         <div
             style={containerStyles}
         >
-            <div style={iconStackStyles}>
+            <div style={iconStackStyles} onClick={() => {setCurrentModule("trial_info")}}>
                 <FontAwesomeIcon icon={faHouse} size='lg' style={{color:'#ffffff'}}/>
                 <h5 className="ml-3">Home</h5>
             </div>
 
-            <div style={iconStackStyles}>
+            <div style={iconStackStyles} onClick={() => {setCurrentModule("profile")}}>
                 <FontAwesomeIcon icon={faUser} size="lg" />
                 <h5 className="ml-3">My Profile</h5>
             </div>

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import HomePageSidebar from './HomePageComponents/HomePageSidebar.js'
 import ResearcherNavBar from './HomePageComponents/ResearcherNavBar.js'
 import ResearcherTrialInfo from './HomePageComponents/ResearcherTrialInfo';
+import ResearcherProfile from './HomePageComponents/ResearcherProfile.js';
 
 function ResearcherHome(){
+    const [module, setCurrentModule] = useState("trial_info");
+
     const pageStyles = {
         display: 'flex',
         flexDirection: 'column',
@@ -17,15 +20,37 @@ function ResearcherHome(){
         flexDirection: 'row'
     }
 
+    let content = null;
+
+    switch (module) {
+        case "trial_info":
+            content = (
+                <ResearcherTrialInfo/>
+            );
+            break;
+        case "profile":
+            content = (
+                <ResearcherProfile/>
+            );
+            break;
+        default:
+            content = (
+                <ResearcherTrialInfo/>
+            )
+            break;
+
+    }
+
     return (
         // first, split the nav bar from everything else. then, split sidebar from trial info
         <div style={pageStyles}>
             <ResearcherNavBar/>
             {/*----------------------------------------------------------------------------------------*/}
             <div style={bottomPageStyles}>
-                <HomePageSidebar/>
-                <ResearcherTrialInfo/>
+                <HomePageSidebar setCurrentModule={setCurrentModule}/>
+                {content}
             </div>
+            
 
         </div>
     )
