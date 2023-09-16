@@ -112,6 +112,5 @@ config = configparser.ConfigParser()
 config.read(os.path.abspath(os.path.join(".ini")))
 
 if __name__ == '__main__':
-    app.config['DEBUG'] = True
     app.config['MONGO_URI'] = config['DB_URI']
-    app.run(host="ip-172-31-21-137.us-west-2.compute.internal", port=5000)
+    app.run(host="0.0.0.0")
