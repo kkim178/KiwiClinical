@@ -1,11 +1,17 @@
-import PatientHome from "./PatientHome"
-import ResearcherHome from "./ResearcherHome"
-import SignUp from "./SignUp"
+import SignUp from './SignUp';
+import PatientHome from './PatientHome';
+import ResearcherHome from './ResearcherHome';
 
 const pages = {
+    SignUp,
     PatientHome,
-    ResearcherHome,
-    SignUp
+    ResearcherHome
 }
 
-export default pages
+export default {
+    SignUp,
+    PatientHome,
+    ResearcherHome
+};
+
+

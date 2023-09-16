@@ -29,11 +29,12 @@ const ChoiceButton = (props) => {
 // accepts "setChosen" function which changes the state in SignUp to true after picking
 const PatientOrResearcher = (props) => {
     return (
+
         <div>
             <h2>Are you a...</h2>
             <ChoiceButton buttonText="Patient" setChosen={props.setChosen} setIsPatient={props.setIsPatient}/>
             <ChoiceButton buttonText="Researcher" setChosen={props.setChosen} setIsPatient={props.setIsPatient}/>
-            
+           
         </div>
     )
 }
