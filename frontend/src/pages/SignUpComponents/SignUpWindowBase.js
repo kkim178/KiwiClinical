@@ -4,8 +4,9 @@ import SignUpWindowResearcher from './SignUpWindowResearcher'
 
 const PatientInfo = () => {
     const containerStyle = {
-        border: '2px solid #007BFF', // Add a border with a blue color
+        border: '0px solid #007BFF', // Add a border with a blue color
         borderRadius: '8px', // Add rounded corners
+        margin: '50px',
         flex: '1',
         flexDirection: 'column',
         padding: '20px', // Add padding for spacing
@@ -13,12 +14,12 @@ const PatientInfo = () => {
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center', // Center-align text
-        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Add a subtle box shadow
+        boxShadow: '0px -8px 12px rgba(0, 0, 0, 0.2), 0px 8px 12px rgba(0, 0, 0, 0.2)',
     }
 
     const titleStyle = {
     fontSize: '24px', // Increase the font size for the title
-    color: '#007BFF', // Use the same blue color for the title
+    color: '#02c346', // Use the same blue color for the title
     marginBottom: '20px', // Add space below the title
     };
     
@@ -33,9 +34,9 @@ const PatientInfo = () => {
         <div style={containerStyle}>
         <h1 style={titleStyle}>Sign up as a KiwiClinical patient!</h1>
         <ul>
-            <li style={listItemStyle}>Privacy: Your data stays anonymous in our system</li>
-            <li style={listItemStyle}>Automatic Matching: We match you with appropriate clinical studies for free!</li>
-            <li style={listItemStyle}>Cutting-Edge Research: Contribute to cutting-edge medical research and advancements.</li>
+            <li style={listItemStyle}><strong>Anonymous Data Security:</strong> Your privacy is our priority. Benefit from our rigorous data security protocols that keep your information anonymous and protected.</li>
+            <li style={listItemStyle}><strong>Personalized Study Matches:</strong> Discover research opportunities that matter to <em>you</em>. Our platform uses cutting-edge algorithms to match you with clinical studies tailored to your health and interests. </li>
+            <li style={listItemStyle}><strong>Empower Medical Progress:</strong> Join a community dedicated to advancing healthcare. Participate in clinical studies and help shape the future of medicine while gaining access to innovative, cutting-edge treatments.</li>
         </ul>
         </div>
     );
@@ -43,8 +44,9 @@ const PatientInfo = () => {
 
 const ResearcherInfo = () => {
     const containerStyle = {
-        border: '2px solid #007BFF', // Add a border with a blue color
+        border: '0px solid #007BFF', // Add a border with a blue color
         borderRadius: '8px', // Add rounded corners
+        margin: '50px',
         flex: '1',
         flexDirection: 'column',
         padding: '20px', // Add padding for spacing
@@ -52,12 +54,12 @@ const ResearcherInfo = () => {
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center', // Center-align text
-        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Add a subtle box shadow
+        boxShadow: '0px -8px 12px rgba(0, 0, 0, 0.2), 0px 8px 12px rgba(0, 0, 0, 0.2)',
     }
 
     const titleStyle = {
     fontSize: '24px', // Increase the font size for the title
-    color: '#007BFF', // Use the same blue color for the title
+    color: '#02c346', // Use the same green color for the title
     marginBottom: '20px', // Add space below the title
     };
     
@@ -72,9 +74,9 @@ const ResearcherInfo = () => {
         <div style={containerStyle}>
         <h1 style={titleStyle}>Sign up as a KiwiClinical researcher!</h1>
         <ul>
-            <li style={listItemStyle}>benefit #1</li>
-            <li style={listItemStyle}>Automatic Matching: We match your studys' needs with patients for free!</li>
-            <li style={listItemStyle}>Cutting-Edge Research: Contribute to cutting-edge medical research and advancements.</li>
+            <li style={listItemStyle}><strong>Targeted Participant Matching:</strong> Benefit from our advanced matching algorithms that pair you with qualified patients who meet your study criteria.</li>
+            <li style={listItemStyle}><strong>Streamlined Recruitment:</strong> Simplify your recruitment process. Save time and resources as our platform automates participant recruitment, allowing you to focus on your research -- not paperwork!</li>
+            <li style={listItemStyle}><strong>Data Security and Anonymity:</strong> Rest assured with our data security measures. Conduct research with confidence, knowing that patient data remains anonymous and confidential.</li>
         </ul>
         </div>
     );
