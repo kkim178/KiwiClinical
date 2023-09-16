@@ -17,7 +17,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const defaultTheme = createTheme();
 
-export default function SignUpWindow() {
+export default function SignUpWindow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -28,7 +28,10 @@ export default function SignUpWindow() {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <div
+      style={props.style}
+    >
+      <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -47,27 +50,6 @@ export default function SignUpWindow() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
@@ -82,11 +64,41 @@ export default function SignUpWindow() {
                 <TextField
                   required
                   fullWidth
+                  id="phone-number"
+                  label="Phone Number"
+                  name="phone-number"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
                   name="password"
                   label="Password"
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                />
+              </Grid>
+              <h3>Medical Information:</h3>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="height"
+                  label="Height (in)"
+                  type="height"
+                  id="height"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="weight"
+                  label="Weight (lb)"
+                  type="weight"
+                  id="weight"
                 />
               </Grid>
             </Grid>
@@ -95,6 +107,11 @@ export default function SignUpWindow() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={() => {
+                /*
+                  TODO HERE: ADD NEW PATIENT DATA TO DB, AND REDIRECT PATIENT TO THEIR HOMEPAGE
+                */
+              }}
             >
               Sign Up
             </Button>
@@ -102,5 +119,7 @@ export default function SignUpWindow() {
         </Box>
       </Container>
     </ThemeProvider>
+    </div>
+    
   );
 }
