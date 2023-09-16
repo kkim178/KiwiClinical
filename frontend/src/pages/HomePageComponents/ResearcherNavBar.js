@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+
 
 const ResearcherNavBar = () => {
     const containerStyles = {
@@ -7,7 +8,8 @@ const ResearcherNavBar = () => {
         flexDirection: "row",
         flex: '50',
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
+        zLayer: "10"
         
     }
 
@@ -28,14 +30,7 @@ const ResearcherNavBar = () => {
                     marginRight: '20px'
                 }}
             >
-                <Button 
-                    variant="contained"
-                    onClick={() => {
-                        // TODO: Insert new trial page here
-                    }}
-                >
-                    Create New Trial
-                </Button>
+                <Link to="/create" className="bg-[#02C344] font-Merriweather text-white rounded-full px-4 py-2 hover:bg-green-200 transition-colors duration-300">Create New Trial</Link>
             </div>
             
         </div>
