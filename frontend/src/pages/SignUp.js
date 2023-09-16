@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '@mui/material';
-import SignUpWindowPatient from './SignUpComponents/SignUpWindowPatient.js'
-import SignUpWindowResearcher from './SignUpComponents/SignUpWindowResearcher.js'
+import SignUpWindowBase from './SignUpComponents/SignUpWindowBase.js';
 
 
 
@@ -50,11 +49,12 @@ function SignUp(){
 
     return (chosen ? (
     //-----------IF CHOSEN IS TRUE---------------
-        isPatient ? (<SignUpWindowPatient/>) : (<SignUpWindowResearcher/>)
+        <SignUpWindowBase isPatient={isPatient}/>
     //----------IF CHOSEN IS FALSE---------------
     ) : (
         <div>
-            <h1>Sign up page</h1>
+            <h1>Welcome to Kiwi Clinical!</h1>
+            <h2>Before we sign you up, we'd like to know a little more about you...</h2>
             <PatientOrResearcher setChosen={setChosen} setIsPatient={setIsPatient}/>
         </div>
     ))
