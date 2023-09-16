@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Header() {
     return (
-        <header className="bg-white p-4 text-black border text-2xl z-50 font-bold shadow-xl flex justify-between px-20 items-center">
+        <header className="bg-white p-4 text-black border text-2xl z-100 font-bold shadow-xl flex justify-between px-20 items-center">
             <div className="flex ">
                 <img src="/kiwi.png" alt="Company Logo" className="h-12"/> 
                 <div className="pt-3 pl-3">
