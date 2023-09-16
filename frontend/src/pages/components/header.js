@@ -7,7 +7,7 @@ function Header() {
             <div className="flex ">
                 <img src="/kiwi.png" alt="Company Logo" className="h-12"/> 
                 <div className="pt-3 pl-3">
-                    KiwiClinical
+                    <Link to="/">KiwiClinical</Link>
                 </div>
             </div>
             <div className="text-green-500 space-x-4">

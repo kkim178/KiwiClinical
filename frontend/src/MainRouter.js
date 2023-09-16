@@ -8,6 +8,7 @@ import ResearcherHome from './pages/ResearcherHome';
 import SignUp from './pages/SignUp';
 import SignUpWindowBase from './pages/SignUpComponents/SignUpWindowBase.js';
 import SignIn from './pages/SignIn.js';
+import Create from './pages/CreateTrial.js';
 
 
 function MainRouter() {
@@ -22,6 +23,7 @@ function MainRouter() {
                 <Route path={'patientHome/'} element={<PatientHome/>}/>
                 <Route path={'researcherHome/'} element={<ResearcherHome/>}/>
                 <Route path={'login/'} element={<SignIn/>}/>
+                <Route path={'create/'} element={<Create/>}/>
             </Routes>
         </div>
     )
