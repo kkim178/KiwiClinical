@@ -11,8 +11,8 @@ function Header() {
                 </div>
             </div>
             <div className="text-green-500 space-x-4">
-                <Link to="/login" className="bg-white text-black px-4 py-2 rounded-full hover:bg-green-200 transition-colors duration-300">Log In</Link>
-                <Link to="/new" className="bg-[#02C344] font-Merriweather text-white rounded-full px-4 py-2 hover:bg-green-200 transition-colors duration-300">Sign Up</Link>
+                <Link href="/login" className="bg-white text-black px-4 py-2 rounded-full hover:bg-green-200 transition-colors duration-300">Log In</Link>
+                <Link href="/new" className="bg-[#02C344] font-Merriweather text-white rounded-full px-4 py-2 hover:bg-green-200 transition-colors duration-300">Sign Up</Link>
             </div>
         </header>
     );
