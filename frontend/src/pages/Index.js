@@ -15,7 +15,7 @@ function Index(){
                     <div className="flex-col space-y-8 mb-30 pl-20">
                         <div className="flex flex-col space-y-8 mb-30 ">
                             <h1 className="text-5xl font-extrabold">Clinical Trials, Made Simple.</h1>
-                            <div className="flex-col justify-left space-y-4">
+                            <div className="flex-row flex justify-left ">
                                 <Link to="/new/patient/" className="bg-green-500 hover:bg-green-600 font-bold mr-5 text-white py-2 px-6 rounded transition-colors duration-300">
                                     For Volunteers
                                 </Link>
@@ -35,7 +35,7 @@ function Index(){
                             <img src="/photo-1577368287217-16ff9373a733.png" alt="Person 2" className="w-full h-full object-cover rounded-full"/>
                         </div>
                         <div className="border-3 border-white absolute animate-float bottom-10 right-0 rounded-full">
-                            <img src="/photo-1551727974-8af20a3322f1 copy.png" alt="Person 3" className="w-full h-full object-scale-down rounded-full" />
+                            <img src="/photo-1551727974-8af20a3322f1 copy.png" alt="Person 3" className="w-full h-full object-cover rounded-full" />
                         </div>
                     </div>
                 </div>
