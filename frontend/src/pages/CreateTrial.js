@@ -60,6 +60,7 @@ function Create() {
         sendData.compensation = stringifiedData.compensation;
         sendData.weight_range = weightRange;
         sendData.height_range = heightRange;
+        sendData.race = formData.race;
 
         console.log("Send", sendData);
 
