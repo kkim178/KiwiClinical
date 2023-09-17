@@ -13,22 +13,73 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-// TODO remove, this demo shouldn't need to reset the theme.
+
+import { useAppContext } from '../App.js';
+import axios from 'axios';
 
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+  const navigate = useNavigate();
+  const { email, setEmail } = useAppContext();
+
+  //-----------------------------------------------------------------------------------------------------
+  //cosnt [loading, setLoading] = useState(false);
+  async function postClinician(formInfo) {
+    //setLoading(true);
+    await axios.post('https://hip-tires-pick.tunnelapp.dev/clinician_post' , formInfo)
+      .then((reponse) => {
+        console.log(reponse.data);
+        navigate('/researcherhome')
+      }).catch((error) => {
+        console.error('Error:', error);
+      }).finally(() => {
+          //setLoading(false)
+        console.log("post request completed");
+      })
+  }
+  //-----------------------------------------------------------------------------------------------------
+
+  // async function getClinician() {
+  //   //setLoading(true);
+  //   await axios.get('https://hip-tires-pick.tunnelapp.dev/clinician_post' , {params: {'email': mefef}})
+  //     .then((reponse) => {
+  //       console.log(reponse.data)
+  //     }).catch(() => {
+
+  //     }).finally(() => {
+  //         //setLoading(false)
+  //     })
+  // }
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
     const formData = {
-        email: data.get('email')
+        email: data.get('email'),
+        first_name: "Spencer",
+        last_name: "Huang",
+        organization_name: "Johns Hopkins University"
     }
     
     console.log(formData);
+    setEmail(data.get('email'));
+
+    postClinician(formData);
+    
+
   };
+
+  useEffect(() => {
+    console.log("email set to: " + email);
+  }, [email])
+
+
 
   return (
     <ThemeProvider theme={defaultTheme}>

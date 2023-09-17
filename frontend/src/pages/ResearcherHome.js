@@ -4,8 +4,15 @@ import ResearcherNavBar from './HomePageComponents/ResearcherNavBar.js'
 import ResearcherTrialInfo from './HomePageComponents/ResearcherTrialInfo';
 import ResearcherProfile from './HomePageComponents/ResearcherProfile.js';
 
+import { useAppContext } from '../App.js'
+import { useEffect } from 'react';
+
+
 function ResearcherHome(){
     const [module, setCurrentModule] = useState("trial_info");
+    const { email, setEmail } = useAppContext();
+
+    console.log("current email: " + email);
 
     const pageStyles = {
         display: 'flex',
@@ -21,6 +28,10 @@ function ResearcherHome(){
     }
 
     let content = null;
+
+    useEffect(() => {
+        console.log("email has changed to " + email);
+    }, [email]);
 
     switch (module) {
         case "trial_info":
@@ -44,7 +55,7 @@ function ResearcherHome(){
     return (
         // first, split the nav bar from everything else. then, split sidebar from trial info
         <div style={pageStyles}>
-            <ResearcherNavBar/>
+            <ResearcherNavBar email={email}/>
             {/*----------------------------------------------------------------------------------------*/}
             <div style={bottomPageStyles}>
                 <HomePageSidebar setCurrentModule={setCurrentModule}/>

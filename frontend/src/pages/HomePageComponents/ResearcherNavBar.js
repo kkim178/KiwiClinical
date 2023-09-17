@@ -1,8 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useAppContext } from '../../App.js'
 
 
-const ResearcherNavBar = () => {
+const ResearcherNavBar = (props) => {
+    const { email, setEmail } = useAppContext();
+    const temp = "hello world";
+
     const containerStyles = {
         display: "flex",
         flexDirection: "row",
@@ -25,6 +29,11 @@ const ResearcherNavBar = () => {
             >
                 <h1>KiwiClinical Research Portal</h1>
             </div>
+
+            <div>
+                <h1>{props.email}</h1>
+            </div>
+          
             <div
                 style = {{
                     marginRight: '20px'

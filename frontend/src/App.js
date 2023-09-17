@@ -1,13 +1,36 @@
 
 // import './App.css';
+import React, { createContext, useContext, useState } from 'react';
 import MainRouter from './MainRouter';
 
-function App() {
+const AppContext = createContext();
+
+function AppProvider({ children }) {
+  const [email, setEmail] = useState("");
+  // You can define functions to modify globalState here
+
   return (
-    <div className="App">
-        <MainRouter/>
-    </div>
+    <AppContext.Provider value={{ email, setEmail }}>
+      {children}
+    </AppContext.Provider>
   );
 }
 
-export default App;
+function useAppContext() {
+  return useContext(AppContext);
+}
+
+function App() {
+
+  return (
+    <AppProvider>
+      <div className="App">
+        <MainRouter/>
+      </div>
+    </AppProvider>
+    
+  );
+}
+
+
+export { App, useAppContext };

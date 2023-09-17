@@ -3,9 +3,10 @@ from flask import request, jsonify
 import os
 import configparser
 from db import get_clinician, get_patient_data,add_clinician,add_patient, add_trial, get_trial_data, get_update_patient, update_patients
+from flask_cors import CORS
 
 app = Flask(__name__, static_url_path='/')
-
+CORS(app)
 @app.route('/clinician', methods=['GET'])
 def api_get_clinician():
     clinician_data = get_clinician(request.args.get('email'))
