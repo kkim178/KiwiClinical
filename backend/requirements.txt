@@ -26,4 +26,4 @@ Werkzeug==2.2.3
 yarl==1.9.2
 pymongo[srv]
 Flask-PyMongo
-
+flask-cors
