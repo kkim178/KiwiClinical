@@ -4,7 +4,7 @@ const ClinicalTrialInfo = (props) => {
     const containerStyles = {
         display: "flex",
         backgroundColor: '#d3d3d3',
-        height:'200px',
+        height:'auto',
         marginLeft: '20px',
         marginRight: '20px',
         marginTop: '20px',
@@ -27,6 +27,9 @@ const ClinicalTrialInfo = (props) => {
             <h2 style={{fontWeight: "bold"}}>{props.trialInfo.name}</h2>
             <h3><em>Description: </em>{props.trialInfo.description}</h3>
             <h3><em>Compensation: </em>{props.trialInfo.compensation}</h3>
+            <h3><em>Weight Range: </em>{props.trialInfo.weight_range}</h3>
+            <h3><em>Height Range: </em>{props.trialInfo.height_range}</h3>
+            <h3><em>Ethnicity of Subgroup: </em>{props.trialInfo.race}</h3>
 
         </div>
     )
