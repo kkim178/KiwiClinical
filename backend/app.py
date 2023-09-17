@@ -2,7 +2,7 @@ from flask import Flask
 from flask import request, jsonify
 import os
 import configparser
-from db import get_clinician, get_patient_data,add_clinician,add_patient, add_trial, get_trial_data, get_update_patient, update_patients
+from db import get_clinician, get_patient_data,add_clinician,add_patient, add_trial, get_trial_data, get_update_patient, update_patients, get_patients
 from flask_cors import CORS
 
 app = Flask(__name__, static_url_path='/')
@@ -38,6 +38,7 @@ def api_post_clinician():
                       , post_data.get('trial_list'), post_data.get('patient_list'), post_data.get('email'))
  
         updated_clinician = get_clinician(post_data.get('email'))
+        
         return jsonify(list(updated_clinician)), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 400
@@ -105,8 +106,12 @@ def api_update_patient_list():
 
 @app.route('/get_patient_list', methods=["GET"])
 def api_get_patient_list():
-    print(request.args.get('email'))
     patient_list = get_update_patient(request.args.get('email'))
+    return jsonify(list(patient_list))
+
+@app.route('/get_patients', methods=["GET"])
+def api_get_patients():
+    patient_list = get_patients()
     return jsonify(list(patient_list))
 
 config = configparser.ConfigParser()

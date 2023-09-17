@@ -68,6 +68,11 @@ def get_patient_data(email):
     projection = {'_id': False}
     clinician_data = db.Patient.find({'email': email}, projection)
     return clinician_data
+
+def get_patients():
+    projection = {'_id': False}
+    patient_data = db.Patient.find({}, projection)
+    return patient_data
 def add_trial(clinicianEmail, name, description , compensation, weight_range, height_range, race):
     """
     Inserts a comment into the Clinician collection, with the following fields:
