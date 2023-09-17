@@ -6,9 +6,12 @@ import ResearcherProfile from './HomePageComponents/ResearcherProfile.js';
 
 import { useAppContext } from '../App.js'
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 
 function ResearcherHome(){
+    const navigate = useNavigate()
     const [module, setCurrentModule] = useState("trial_info");
     const { email, setEmail } = useAppContext();
 
@@ -51,6 +54,37 @@ function ResearcherHome(){
             break;
 
     }
+
+
+    const [trials, setTrials] = useState([]);
+
+    //-------------------------------------------------------------------------------------------
+    async function getTrials(formInfo) {
+        //setLoading(true);
+        console.log("get request initiated")
+        await axios.get('https://hip-tires-pick.tunnelapp.dev/trials' , formInfo)
+          .then((response) => {
+            console.log(response.data);
+            setTrials(response.data);
+            // TODO: refresh?
+            navigate('/researcherhome')
+          }).catch((error) => {
+            console.error('Error:', error);
+          }).finally(() => {
+              //setLoading(false)
+            console.log("get request completed");
+          })
+    }
+
+
+    useEffect(() => {
+        const formInfo = {
+            email: email
+        }
+       getTrials(formInfo)
+    }, [])
+    
+    //-------------------------------------------------------------------------------------------
 
     return (
         // first, split the nav bar from everything else. then, split sidebar from trial info

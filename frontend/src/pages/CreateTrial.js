@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from './components/header';
+import axios from 'axios';
 
 function Create() {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
-        clinicianEmail: '',
+        email: '',
         name: '',
         description: '',
         compensation: '',
@@ -17,7 +21,7 @@ function Create() {
     });
 
     const [sendData, setSendData] = useState({
-        clinicianEmail: '',
+        email: '',
         name: '',
         description: '',
         compensation: '',
@@ -33,6 +37,24 @@ function Create() {
         });
     };
 
+
+    //---------------------------------------------------------------------------------------
+    async function postTrial(formInfo) {
+        //setLoading(true);
+        console.log("post request initiated")
+        await axios.post('https://hip-tires-pick.tunnelapp.dev/trial_post' , formInfo)
+            .then((reponse) => {
+            console.log(reponse.data);
+            navigate('/researcherhome')
+            }).catch((error) => {
+            console.error('Error:', error);
+            }).finally(() => {
+                //setLoading(false)
+            console.log("post request completed");
+            })
+    }
+    //---------------------------------------------------------------------------------------
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -44,17 +66,19 @@ function Create() {
             weight_range_min: String(formData.weight_range_min),
             weight_range_max: String(formData.weight_range_max),
             height_range_min: String(formData.height_range_min),
-            height_range_max: String(formData.height_range_max)
+            height_range_max: String(formData.height_range_max),
         };
 
         console.log("STRINGIFIED", stringifiedData);
+        
+
 
         // Combine weight and height ranges
         const weightRange = `${formData.weight_range_min}-${formData.weight_range_max}`;
         const heightRange = `${formData.height_range_min}-${formData.height_range_max}`;
 
         // Now all fields are strings and data processed for send
-        sendData.clinicianEmail = stringifiedData.clinicianEmail;
+        sendData.email = stringifiedData.email;
         sendData.name = stringifiedData.name;
         sendData.description = stringifiedData.description;
         sendData.compensation = stringifiedData.compensation;
@@ -63,6 +87,7 @@ function Create() {
         sendData.race = formData.race;
 
         console.log("Send", sendData);
+        postTrial(sendData);
 
         // 
 
@@ -79,7 +104,7 @@ function Create() {
             <form onSubmit={handleSubmit} class="py-10">
                 <div className="mb-4">
                     <label className="block text-black mb-2">Clinician Email</label>
-                    <input type="email" name="clinicianEmail" placeholder="Clinician Email" value={formData.clinicianEmail} onChange={handleChange} className="w-full p-2 border rounded" required />
+                    <input type="email" name="email" placeholder="Clinician Email" value={formData.email} onChange={handleChange} className="w-full p-2 border rounded" required />
                 </div>
                 <div className="mb-4">
                     <label className="block text-black mb-2">Name of Trial</label>
