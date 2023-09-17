@@ -4,6 +4,9 @@ import os
 import configparser
 from db import get_clinician, get_patient_data,add_clinician,add_patient, add_trial, get_trial_data, get_update_patient, update_patients, get_patients
 from flask_cors import CORS
+from sms_text import sms_text
+
+
 
 app = Flask(__name__, static_url_path='/')
 CORS(app)
@@ -79,8 +82,10 @@ def api_post_trial():
         add_trial(post_data.get('email'), post_data.get('name'),post_data.get('description'), post_data.get('compensation')
                     , post_data.get('weight_range'), post_data.get('height_range'), post_data.get('race'))
  
-        updated_patient = get_trial_data(post_data.get('email'))
-        return jsonify(list(updated_patient)), 200
+        updated_trial = get_trial_data(post_data.get('email'))
+        patients_list = get_patients()
+        sms_text(patients_list, updated_trial)
+        return jsonify(list(updated_trial)), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 400
     
