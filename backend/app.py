@@ -84,7 +84,9 @@ def api_post_trial():
  
         updated_trial = get_trial_data(post_data.get('email'))
         patients_list = get_patients()
-        sms_text(patients_list, updated_trial)
+        specifications = list(updated_trial)[0]["trial_list"][len(list(updated_trial))-1]
+        print(specifications["name"])
+        sms_text(list(patients_list), specifications)
         return jsonify(list(updated_trial)), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 400
