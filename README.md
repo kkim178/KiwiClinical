@@ -61,7 +61,3 @@ $ npm install axios @mui/icons-material @mui/material @emotion/react @emotion/st
 ```
 
 Please reach out to shuan126@jh.edu for any inquiries!
-
-
-
-https://devpost.com/software/569820/joins/jIFbmVs5ZlGXxqOeuF6beg
