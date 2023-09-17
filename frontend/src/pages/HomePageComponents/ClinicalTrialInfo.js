@@ -4,7 +4,7 @@ const ClinicalTrialInfo = (props) => {
     const containerStyles = {
         display: "flex",
         backgroundColor: '#d3d3d3',
-        height:'100px',
+        height:'200px',
         marginLeft: '20px',
         marginRight: '20px',
         marginTop: '20px',
@@ -17,16 +17,16 @@ const ClinicalTrialInfo = (props) => {
 
     }
 
-    const patientsRecruitedDemo = 50
-    const currentDate = new Date()
+    // const patientsRecruitedDemo = 50
+    // const currentDate = new Date()
 
     return (
         <div
             style={containerStyles}
         >
-            <h2 style={{fontWeight: "bold"}}>Aspirin Dosing: A Patient-Centric Trial Assessing Benefits and Long-term</h2>
-            <h3><em>Patients Recruited: </em>{patientsRecruitedDemo}</h3>
-            <h3><em>Date Created: </em>{`${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`}</h3>
+            <h2 style={{fontWeight: "bold"}}>{props.trialInfo.name}</h2>
+            <h3><em>Description: </em>{props.trialInfo.description}</h3>
+            <h3><em>Compensation: </em>{props.trialInfo.compensation}</h3>
 
         </div>
     )

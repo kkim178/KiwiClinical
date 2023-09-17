@@ -1,7 +1,7 @@
 import React from 'react'
 import ClinicalTrialInfo from './ClinicalTrialInfo'
 
-const ResearcherTrialInfo = () => {
+const ResearcherTrialInfo = (props) => {
     const containerStyles = {
         display: "flex",
         flexDirection: "column",
@@ -14,9 +14,10 @@ const ResearcherTrialInfo = () => {
         <div
             style={containerStyles}
         >
-            <ClinicalTrialInfo/>
-            <ClinicalTrialInfo/>
-            <ClinicalTrialInfo/>
+
+            {props.trials !== null && props.trials.map(trial => {
+                return <ClinicalTrialInfo trialInfo={trial}/>
+            })}
             
             
           

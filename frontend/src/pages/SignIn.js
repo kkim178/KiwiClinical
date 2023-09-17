@@ -63,17 +63,12 @@ export default function SignIn() {
 
     const formData = {
         email: data.get('email'),
-        first_name: "Spencer",
-        last_name: "Huang",
-        organization_name: "Johns Hopkins University",
-        trial_list: [],
-        patient_list: [],
     }
     
     console.log(formData);
-    setEmail(data.get('email'));
+    setEmail(data.get('email'))
 
-    postClinician(formData);
+    navigate('/researcherhome')
     
 
   };

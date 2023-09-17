@@ -14,6 +14,7 @@ function ResearcherHome(){
     const navigate = useNavigate()
     const [module, setCurrentModule] = useState("trial_info");
     const { email, setEmail } = useAppContext();
+    const [trials, setTrials] = useState([]);
 
     console.log("current email: " + email);
 
@@ -39,7 +40,7 @@ function ResearcherHome(){
     switch (module) {
         case "trial_info":
             content = (
-                <ResearcherTrialInfo/>
+                <ResearcherTrialInfo trials={trials}/>
             );
             break;
         case "profile":
@@ -56,16 +57,17 @@ function ResearcherHome(){
     }
 
 
-    const [trials, setTrials] = useState([]);
+    
 
     //-------------------------------------------------------------------------------------------
     async function getTrials(formInfo) {
         //setLoading(true);
-        console.log("get request initiated")
-        await axios.get('https://hip-tires-pick.tunnelapp.dev/trials' , formInfo)
+        console.log("get request initiated with email address: " + formInfo.email)
+        await axios.get('https://hip-tires-pick.tunnelapp.dev/trials' , {params: formInfo})
           .then((response) => {
-            console.log(response.data);
-            setTrials(response.data);
+            console.log("test: " + response.data.at(0).trial_list);
+            console.log(response.data.at(0));
+            setTrials(response.data.at(0).trial_list);
             // TODO: refresh?
             navigate('/researcherhome')
           }).catch((error) => {
@@ -78,8 +80,13 @@ function ResearcherHome(){
 
 
     useEffect(() => {
+        let curEmail = email;
+        if (curEmail === "") {
+            curEmail = "shuan126@jh.edu"
+        }
+
         const formInfo = {
-            email: email
+            email: curEmail
         }
        getTrials(formInfo)
     }, [])

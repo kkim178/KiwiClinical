@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -24,6 +25,25 @@ const defaultTheme = createTheme();
 export default function SignUp(props) {
   const navigate = useNavigate();
 
+
+  //-----------------------------------------------------------------------------------------------------
+  //cosnt [loading, setLoading] = useState(false);
+  async function postClinician(formInfo) {
+    //setLoading(true);
+    console.log("post request initiated")
+    await axios.post('https://hip-tires-pick.tunnelapp.dev/clinician_post' , formInfo)
+      .then((reponse) => {
+        console.log(reponse.data);
+        navigate('/researcherhome')
+      }).catch((error) => {
+        console.error('Error:', error);
+      }).finally(() => {
+          //setLoading(false)
+        console.log("post request completed");
+      })
+  }
+  //-----------------------------------------------------------------------------------------------------
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -33,11 +53,13 @@ export default function SignUp(props) {
       first_name: data.get('firstName'),
       last_name: data.get('lastName'),
       organization_name: data.get('organization-name'),
+      trial_list: [],
+      patient_list: []
       
     }
     console.log(formData);
+    postClinician(formData);
 
-    navigate('/researcherhome')
   };
 
   return (
