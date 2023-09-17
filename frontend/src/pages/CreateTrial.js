@@ -64,9 +64,7 @@ function Create() {
 
         console.log("Send", sendData);
 
-
-        // Call your API to send the formData
-        // For example:
+        // 
 
         
     };
